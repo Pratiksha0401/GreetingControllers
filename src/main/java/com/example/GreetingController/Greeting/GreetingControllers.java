@@ -12,7 +12,7 @@ public class GreetingControllers {
 	private static final String template = " Hello , %s !";
 	private final AtomicLong counter = new AtomicLong();
 	
-	//here we are passing value name="Pratiksha"
+	//here we are passing value name ="Pratiksha"
 	//curl -X GET "http://localhost:8080/greeting" -w "\n"
 	@GetMapping("/greeting")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
