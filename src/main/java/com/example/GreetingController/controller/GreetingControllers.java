@@ -5,6 +5,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,5 +46,13 @@ public class GreetingControllers {
 	@GetMapping("/Pratiksha")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return new Greeting(counter.incrementAndGet(), String.format(template, "Pratiksha"));
+	}
+	
+	//UC4
+	//  curl -X POST -H "Content-Type:application/json" -d'{"id":"2" ,"content":"Heyy World !"}' 
+	//                   "http://localhost:8080/greet/save" -w "\n"
+	@PostMapping("/post")
+	public String getAll(@RequestBody Greeting greet) {
+		return greetService.add(greet);
 	}
 }

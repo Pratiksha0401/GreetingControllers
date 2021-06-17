@@ -18,4 +18,8 @@ public class GreetService {
 		return greetRepositary.getAll();
 	}
 
+	public String add(Greeting greet) {
+		return greetRepositary.add(greet);
+	}
+
 }

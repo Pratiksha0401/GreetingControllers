@@ -15,4 +15,9 @@ public class GreetRepositary {
 	public List<Greeting> getAll() {
 		return greeting;
 	}
+
+	public String add(Greeting greet) {
+		greeting.add(greet);
+		return "Sucessfully Saved !";
+	}
 }
