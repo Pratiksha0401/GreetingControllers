@@ -55,12 +55,17 @@ public class GreetingControllers {
 		return greetingService.getGreetingById(id);	
 	}
 	
-	//UC6
+	//UC6 list of all greting messages
 	//	curl "http://localhost:8080/greeting/getAll" -w "\n"
 	@GetMapping("/getAll")
 	public List<Greeting> getAllGreetings() {
 		return greetingService.getAllGreetings();	
 	}
 	
-
+	//UC-8 To Delete Greeting Message By Id
+	@GetMapping("/delete/{id}")
+	public String deleteByid(@PathVariable long id) {
+		return greetingService.deleteGreetingById(id);	
+	}
+	
 }
