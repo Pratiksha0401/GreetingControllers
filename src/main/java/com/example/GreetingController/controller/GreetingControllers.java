@@ -27,6 +27,7 @@ public class GreetingControllers {
 	private IGreetingService greetingService;
 	
 	//UC-2
+	//  curl "http://localhost:8080/greeting/home?name=Pratiksha" -w "\n"
 	@GetMapping(value={"","/", "/home"})
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		User user = new User();
@@ -44,6 +45,13 @@ public class GreetingControllers {
 	public String sayHello(@PathVariable String firstName,
 			               @RequestParam(value="lastName") String lastName) {
 		return "Hello" + firstName +" "+ lastName + " !!";
+	}
+	
+	//UC-5 To find Greeting Message by Id
+	//  curl "http://localhost:8080/greeting/message/1" -w "\n"
+	@GetMapping("/message/{id}")
+	public Greeting getByid(@PathVariable long id) {
+		return greetingService.getGreetingById(id);	
 	}
 
 }
