@@ -6,6 +6,5 @@ import com.example.GreetingController.entity.User;
 public interface IGreetingService {
 
 	public Greeting addGreeting(User user);
-	public Greeting getGreetingById(long id);
 
 }

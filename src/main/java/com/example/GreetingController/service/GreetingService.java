@@ -18,14 +18,10 @@ public class GreetingService implements IGreetingService {
 	@Autowired
 	public GreetingRepository greetingRepository;
 	
+	//UC4 save to h2 database
 	public Greeting addGreeting(User user) {
 		String message =String.format(template,  (user.toString().isEmpty()) ? "Hello World" :user.toString());		
         return greetingRepository.save(new Greeting(counter.incrementAndGet(), message));
 	}
 
-	@Override
-	public Greeting getGreetingById(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
