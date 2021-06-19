@@ -1,5 +1,6 @@
 package com.example.GreetingController.controller;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,11 +48,19 @@ public class GreetingControllers {
 		return "Hello" + firstName +" "+ lastName + " !!";
 	}
 	
-	//UC-5 To find Greeting Message by Id
+	//UC5 To find Greeting Message by Id
 	//  curl "http://localhost:8080/greeting/message/1" -w "\n"
 	@GetMapping("/message/{id}")
 	public Greeting getByid(@PathVariable long id) {
 		return greetingService.getGreetingById(id);	
 	}
+	
+	//UC6
+	//	curl "http://localhost:8080/greeting/getAll" -w "\n"
+	@GetMapping("/getAll")
+	public List<Greeting> getAllGreetings() {
+		return greetingService.getAllGreetings();	
+	}
+	
 
 }
